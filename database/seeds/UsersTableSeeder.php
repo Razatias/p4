@@ -12,11 +12,10 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-      $users = {
+      $users = [
       ['jill@harvard.edu','Jill','helloworld'],
       ['jama@harvard.edu','Jama','helloworld']
-    }
+      ];
 
-        //
     }
 }

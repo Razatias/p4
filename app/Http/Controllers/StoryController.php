@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use DB;
 
 class StoryController extends Controller
 {
@@ -25,5 +26,20 @@ class StoryController extends Controller
       #display message
       return view('createstory')->with('message', $message);
    }
+
+   public function showStory($title)
+   {
+     $story = DB::table('stories')->where('title', '=', $title)->get();
+
+      return view('showstory')->with('story', $story);
+
+    }
+
+    public function editStory($title)
+    {
+        return view('showstory')->with('title', $title);
+     }
+
+
 
 }

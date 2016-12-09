@@ -21,6 +21,10 @@ Route::get('/stories/create', function () {
 
 Route::post('/stories/create', 'StoryController@addStory');
 
+Route::get('/stories/{title}', 'StoryController@showStory');
+
+Route::get('/stories/{title}/edit', 'StoryController@editStory');
+
 Route::get('/stories/edit', function () {
     return view('unfinished');
 });
