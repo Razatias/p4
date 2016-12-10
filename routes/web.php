@@ -16,14 +16,14 @@ Route::get('/', function () {
 });
 
 Route::get('/stories/create', function () {
-    return view('createstory')->with('message', '');
+    return view('createstory')->with('message', '')->middleware('auth');
 });
 
-Route::post('/stories/create', 'StoryController@addStory');
+Route::post('/stories/create', 'StoryController@addStory')->middleware('auth');
 
 Route::get('/stories/{title}', 'StoryController@showStory');
 
-Route::get('/stories/{title}/edit', 'StoryController@editStory');
+Route::get('/stories/{title}/edit', 'StoryController@editStory')->middleware('auth');
 
 Route::get('/stories/edit', function () {
     return view('unfinished');
@@ -82,3 +82,16 @@ Route::get('/debug', function() {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index');
+Route::get('/logout','Auth\LoginController@logout')->name('logout');
+Route::get('/show-login-status', function() {
+
+    # You may access the authenticated user via the Auth facade
+    $user = Auth::user();
+
+    if($user)
+        dump($user->toArray());
+    else
+        dump('You are not logged in.');
+
+    return;
+});

@@ -6,6 +6,18 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
 </head>
 <body>
+			<div class='container' align="right" >
+					@if(Auth::check())
+							<a class="button" href='/'>Home</a>
+							<a  class="button button-primary" href='/stories/create'>Add a new story</a>
+							<a  class="button" href='/logout'>Log out</a>
+					@else
+							<a class="button" href='/'>Home</a>
+							<a class="button" href='/login'>Log in</a>
+							<a class="button button-primary" href='/register'>Register</a>
+					@endif
+		</div>
+
 		<div class='container'>
 				<h1>Welcome to Social Stories</h1>
 				<h2>How does it work?</h2>
@@ -20,7 +32,7 @@
           <a class="button button-primary" href='/stories/create'>create a new story</a>
           <a class="button button-primary" href='/non_finished'>Continue a stroy</a>
           <br>
-          
+
 				<h2>recent stories</h2>
 				<p>recent storiesrecent storiesrecent storiesrecent storiesrecent stories</p>
 
