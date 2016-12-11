@@ -15,23 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/stories/create', function () {
-    return view('createstory')->with('message', '')->middleware('auth');
-});
+Route::get('/stories/create', 'StoryController@addStoryForm')->middleware('auth');
 
 Route::post('/stories/create', 'StoryController@addStory')->middleware('auth');
 
-Route::get('/stories/{title}', 'StoryController@showStory');
+Route::get('/stories/edit', 'StoryController@editStory')->middleware('auth');
 
-Route::get('/stories/{title}/edit', 'StoryController@editStory')->middleware('auth');
+Route::get('/stories/{story_id}', 'StoryController@showStory');
 
-Route::get('/stories/edit', function () {
-    return view('unfinished');
-});
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 if(App::environment('local')) {
 

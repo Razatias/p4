@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
 
 class UsersTableSeeder extends Seeder
 {
@@ -15,24 +16,24 @@ class UsersTableSeeder extends Seeder
 
           # Define the users you want to add
           $users = [
-              ['jill@harvard.edu','jill','helloworld'], # <-- Required for P4
-              ['jamal@harvard.edu','jamal','helloworld'], # <-- Required for P4
-              ['test@test.com','raz','12345678']
+              ['jill','jill@harvard.edu','helloworld'], # <-- Required for P4
+              ['jamal','jamal@harvard.edu','helloworld'], # <-- Required for P4
+              ['raz','test@test.com','12345678']
           ];
 
           # Get existing users to prevent duplicates
-          //$existingUsers = User::all()->keyBy('email')->toArray();
+          $existingUsers = User::all()->keyBy('email')->toArray();
 
-          //foreach($users as $user) {
+          foreach($users as $user) {
               # If the user does not already exist, add them
-            //  if(!array_key_exists($user[0],$existingUsers)) {
-              ///    $user = User::create([
-                //      'email' => $user[0],
-                  //    'name' => $user[1],
-                    //  'password' => Hash::make($user[2]),
-                  //]);
-              //}
-          //}
+            if(!array_key_exists($user[1],$existingUsers)) {
+                  $user = User::create([
+                      'email' => $user[1],
+                      'name' => $user[0],
+                      'password' => Hash::make($user[2]),
+                  ]);
+              }
+          }
           }
 
     }

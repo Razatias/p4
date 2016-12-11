@@ -13,12 +13,15 @@
 
 <form method='POST'action='/stories/create'>
   {{ csrf_field() }}
-  <label for="storyTitle">Title</label>
-  <input name="storyTitle" type="text"  id="storyTitle">
+  <label for="title">Title</label>
+  <input name="title" type="text"  id="title" size="20">
 	<br>
-  <label for="story1stLine">First line</label>
-  <input name="story1stLine" type="text"  id="story1stLine">
+  <label for="firstLine">First line</label>
+  <input name="firstLine" type="text"  id="firstLine" size="100">.
   <br>
+	<label for="secondLineFirstWord">Second line first word (users will only see this word until the story is finished)</label>
+	<input name="secondLineFirstWord" type="text"  id="secondLineFirstWord" size="5">...
+	<br>
 	<input type="submit" value="Create a new story">
 </form>
 

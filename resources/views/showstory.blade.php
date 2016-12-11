@@ -7,12 +7,16 @@
 </head>
 <body>
 		<div class='container'>
-				<h1>{{$story[0]->title}}</h1>
+			 <h1>{{$story[0]->title}}</h1>
 			 <p>{{$story[0]->firstline}}</p>
 			 <p>{{$story[0]->secondline}}</p>
 			 <p>{{$story[0]->thirdline}}</p>
 			 <p>{{$story[0]->forthline}}</p>
 			 <p>{{$story[0]->fifthline}}</p>
+		</div>
+    <div class='container'>
+			<a class="button button-primary" href='/'>Home</a>
+			<a class="button button-primary" href='/stories/create'>Create a new story</a>
 		</div>
 </body>
 </html>

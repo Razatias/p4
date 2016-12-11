@@ -9,7 +9,8 @@
 			<div class='container' align="right" >
 					@if(Auth::check())
 							<a class="button" href='/'>Home</a>
-							<a  class="button button-primary" href='/stories/create'>Add a new story</a>
+							<a  class="button" href='/stories/create'>Add a new story</a>
+							<a  class="button" href='/stories/create'>My stories</a>
 							<a  class="button" href='/logout'>Log out</a>
 					@else
 							<a class="button" href='/'>Home</a>
@@ -19,8 +20,10 @@
 		</div>
 
 		<div class='container'>
-				<h1>Welcome to Social Stories</h1>
-				<h2>How does it work?</h2>
+				<br>
+				<h1 align="center">Welcome to Social Stories</h1>
+				<h2 align="center">How does it work?</h2>
+				<br>
 
 				<p>An app for creating short nonsense stories by multiple people.
           Each user writes a few sentences starting with a line of text written by another user,
@@ -29,14 +32,31 @@
            each participat writing a sentence and folding the paper, so no one can see what’s being written
           before the story is complete.</p>
           <br>
-          <a class="button button-primary" href='/stories/create'>create a new story</a>
-          <a class="button button-primary" href='/non_finished'>Continue a stroy</a>
+					<div align="center">
+		          <a class="button button-primary" href='/stories/create'>create a new story</a>
+		          <a class="button button-primary" href='/stories/edit'>Join someone else's story</a>
+					</div>
           <br>
 
-				<h2>recent stories</h2>
-				<p>recent storiesrecent storiesrecent storiesrecent storiesrecent stories</p>
+				<h2 align="center">Recent stories</h2>
+				<?php
+								use App\Story;
 
+								$stories = Story::all();
 
+								if(!$stories->isEmpty()) {
+
+										# Output stories
+										$allStories="";
+										foreach($stories as $story) {
+												$allStories.= "<p><a href=/stories/". $story->story_id .">" . $story->title . "</p>";
+										}
+										echo $allStories;
+								}
+								else {
+										echo 'No stories to display';
+								}
+				 ?>
 
 		</div>
 </body>
