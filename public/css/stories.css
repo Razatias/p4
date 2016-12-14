@@ -1,0 +1,11 @@
+.stories{
+  background-color: #ffeecc;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.storytitle{
+  font-size: 250%;
+  font-weight: bold;
+  display: inline;
+}

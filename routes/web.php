@@ -21,6 +21,8 @@ Route::post('/stories/create', 'StoryController@addStory')->middleware('auth');
 
 Route::get('/stories/edit', 'StoryController@editStory')->middleware('auth');
 
+Route::post('/stories/edit', 'StoryController@addUfStory')->middleware('auth');
+
 Route::get('/stories/{story_id}', 'StoryController@showStory');
 
 
