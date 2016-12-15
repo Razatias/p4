@@ -6,12 +6,23 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
 </head>
 <body>
+
+<div class='container' align="right" >
+			@if(Auth::check())
+					<a class="button" href='/'>Home</a>
+					<a  class="button" href='/stories/create'>Add a new story</a>
+					<a  class="button" href='/logout'>Log out</a>
+			@else
+					<a class="button" href='/'>Home</a>
+					<a class="button" href='/login'>Log in</a>
+					<a class="button button-primary" href='/register'>Register</a>
+			@endif
+</div>
+
 <div class="container">
-      <a href='/'>back</a>
+<h1 align="center"><b>Create a new story</b></h1>
 
-<h1>create a new story</h1>
-
-<form method='POST'action='/stories/create'>
+<form method='POST'action='/stories/create' align="center">
   {{ csrf_field() }}
   <label for="title">Title</label>
   <input name="title" type="text"  id="title" size="20">
@@ -19,8 +30,8 @@
   <label for="firstLine">First line</label>
   <input name="firstLine" type="text"  id="firstLine" size="100">.
   <br>
-	<label for="secondLineFirstWord">Second line first word (users will only see this word until the story is finished)</label>
-	<input name="secondLineFirstWord" type="text"  id="secondLineFirstWord" size="5">...
+	<label for="secondLineFirstWord">Begining of second line</label>
+	<input name="secondLineFirstWord" type="text"  id="secondLineFirstWord" size="15">
 	<br>
 	<input type="submit" value="Create a new story">
 </form>

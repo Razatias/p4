@@ -18,7 +18,9 @@ class UsersTableSeeder extends Seeder
           $users = [
               ['jill','jill@harvard.edu','helloworld'], # <-- Required for P4
               ['jamal','jamal@harvard.edu','helloworld'], # <-- Required for P4
-              ['raz','test@test.com','12345678']
+              ['raz','test@test.com','12345678'],
+              ['Jack','jack@test.com','12345678'],
+              ['Jim','jim@test.com','12345678']
           ];
 
           # Get existing users to prevent duplicates

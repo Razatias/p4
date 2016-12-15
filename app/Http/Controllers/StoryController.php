@@ -46,12 +46,12 @@ class StoryController extends Controller
 
 
       $message =
-      "<p>Story added!<p>
+      "<h3 align='center'>Story added!</h3>
       <br>
+      <p align='center'>
       <a class='button button-primary' href='/'>Home</a>
-      <a class='button button-primary' href='/stories/user'>My stories</a>
-      <a class='button button-primary' href='/stories/edit'>Join someone else's story</a>
-      <br>";
+      <a class='button button-primary' href='/stories/edit'>Join a story</a>
+      <br></p>";
 
       #display message
       return view('createstory')->with('message', $message);
@@ -129,7 +129,7 @@ class StoryController extends Controller
                         # add story to finished storied database
                         $finishedStory = DB::table('unfinished_stories')
                               ->where('ufstory_id', $request->input('ufstory_id'))->get();
-          
+
                         $newstory = new Story();
                         $newstory->title = $finishedStory[0]->uftitle;
                         $newstory->author_id = $finishedStory[0]->ufauthor_id;

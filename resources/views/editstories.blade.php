@@ -4,15 +4,27 @@
 	<meta charset='utf-8'>
 	<title>Help finish a story</title>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
-  	<link rel="stylesheet" type="text/css" href="http:/css/stories.css">
+  <link rel="stylesheet" type="text/css" href="http:/css/stories.css">
 
 </head>
 <body>
+  <div class='container' align="right" >
+      @if(Auth::check())
+          <a class="button" href='/'>Home</a>
+          <a  class="button" href='/stories/create'>Add a new story</a>
+          <a  class="button" href='/logout'>Log out</a>
+      @else
+          <a class="button" href='/'>Home</a>
+          <a class="button" href='/login'>Log in</a>
+          <a class="button button-primary" href='/register'>Register</a>
+      @endif
+</div>
+
 <div class="container">
-      <a href='/'>back</a>
 
-<h1>Help finish a story</h1>
-
+<h1 align="center"><b>Join a story</b></h1></br>
+<h5 align="center">Here you'll find all the unfinished stories.</br> Once a story is complete you'll see it at the home page</h5>
+</br>
 @if(count($errors) > 0)
     <ul>
         @foreach ($errors->all() as $error)
